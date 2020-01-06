@@ -24,7 +24,6 @@ public class BallView extends View {
     public BallView(Context context, PointF pos) {
         super(context);
         mPaint.setColor(Color.RED);
-        pos = new PointF(pos.x , pos.y);
         this.r = 20;
     }
 

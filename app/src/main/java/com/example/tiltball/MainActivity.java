@@ -13,6 +13,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.Display;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
@@ -30,11 +31,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         mainView = findViewById(R.id.main_view);
 
         Point size = new Point();
         Display display = getWindowManager().getDefaultDisplay();
         display.getSize(size);
+
         xMax = (float) size.x;
         yMax = (float) size.y - 150;
 
